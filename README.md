@@ -1,59 +1,84 @@
-# 📉 Customer Churn Prediction
-This project uses machine learning to predict whether a customer is likely to **churn** (leave the service). It is based on a telecom dataset and uses logistic regression for classification.
+# 📉 Customer Churn Predictor
 
-## 📁 Project Structure
+This project predicts whether a telecom customer is likely to **churn (leave the service)** based on their usage data and account information. It uses a Logistic Regression model and a Streamlit web app for interactive predictions.
+
+---
+
+## 🗂️ Folder Structure
+
 CustomerChurnPredictor/
+│
+├── app.py # (Optional/older version of Streamlit app)
+├── churn_app.py # ✅ Streamlit app for live predictions
+├── churn_logs.csv # CSV log of user predictions
+├── churn_model.pkl # Trained ML model file
+├── cleaned_telco.csv # Cleaned dataset after preprocessing
+├── load_data.py # Script to load and preview raw dataset
+├── preprocess_data.py # Cleans and prepares dataset
+├── telco_churn.csv # 📦 Original dataset
+├── train_model.py # Trains the churn prediction model
+├── README.md # 📄 Project documentation (this file)
 
-├── load_data.py # Loads and previews the dataset
-├── train_model.py # Trains and evaluates the ML model
-├── churn_model.pkl # Saved trained model
-├── churn_app.py # Streamlit web app for predictions
-├── churn_logs.csv # Logs user inputs and predictions
-├── README.md # Project documentation
+## 📊 Dataset Summary
 
-## 📊 Dataset
-The dataset contains customer info such as:
+- **Rows:** 7043  
+- **Columns:** 21  
+- **Target Variable:** `Churn` (Yes/No)
 
-- Gender, Age, Tenure
-- Internet Service, Streaming TV/Movie
-- Monthly & Total Charges
-- Churn (target variable)
+The dataset contains features like:
 
-📦 Rows: 7043
-📦 Features: 21
+- Gender, SeniorCitizen, Tenure  
+- Internet & Streaming services  
+- Payment method, Contract type  
+- Monthly & Total charges
 
-## ✅ Features
+---
 
-- Cleaned and preprocessed data
-- Trained a Logistic Regression classifier
-- Evaluation report includes accuracy, precision, recall, and f1-score
-- Streamlit web app for live predictions
-- User input logs saved in `churn_logs.csv`
+## 🧠 Model Details
 
-## 🚀 How to Run the App
+- **Model Used:** Logistic Regression  
+- **Accuracy:** ~79%  
+- **Precision (Churn):** 62%  
+- **Recall (Churn):** 52%  
+- **Trained On:** Balanced, cleaned dataset  
+- **Saved As:** `churn_model.pkl`
 
-1. Install required packages:
-pip install -r requirements.txt
-Run the Streamlit app:
+---
 
+## 🚀 How to Use
+
+### 1. Install Requirements
+pip install streamlit scikit-learn pandas
+
+2. Run the Web App
 streamlit run churn_app.py
 
-🧠 Model Performance
-Accuracy: 79%
-Precision (Yes): 62%
-Recall (Yes): 52%
+4. Use the Interface
+Enter customer details (age, charges, contract type, etc.)
 
-🗂️ Example Prediction
-Age: 40
-Monthly Charges: 70
-Contract: Month-to-Month
-Prediction: ❌ Customer will churn
+Click Predict
 
-📌 Author
+Get the result: 🎯 Prediction: Will Churn / Won't Churn
+
+All predictions are logged in churn_logs.csv
+
+📈 Example Output
+Age: 35
+Monthly Charges: 60.50
+Contract: Month-to-month
+🎯 Prediction: ❌ Will Churn
+🙋 Why This Project?
+This project helps telecom companies:
+
+Predict churn before it happens
+
+Understand factors leading to customer loss
+
+Take action (like offers, support) to retain users
+
+👨‍💻 Author
 Vinoth Viveki
-GitHub Profile
+🔗 GitHub Profile
 
 📜 License
-This project is open-source under the MIT License.
-
-Let me know once you've added it and committed/pushed to GitHub. Then I’ll mark **Day 25 complete** and start **Day 2
+This project is licensed under the MIT License.
